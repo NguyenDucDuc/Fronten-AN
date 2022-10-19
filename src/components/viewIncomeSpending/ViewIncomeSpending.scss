@@ -1,0 +1,205 @@
+h1.title-view-spending {
+    text-align: center;
+            font-size: 50px;
+            color: #cc0066;
+            margin-top: 50px;
+            font-weight: bold;
+}
+section.view-income-spending {
+    width: 100%;
+    div.filter {
+        width: 70%;
+        margin: 0 auto;
+        form {
+            width: 100%;
+            display: flex;
+            margin: 0 auto;
+            margin-top: 50px;
+            justify-content: center;
+            div.form-group {
+                margin: 0 20px;
+                input {
+                    padding: 5px 10px;
+                    border: 2px solid #ff0066;
+                    border-radius: 10px;
+                    margin-left: 10px;
+                }
+                label {
+                    color: #ff0066;
+                    font-size: 18px;
+                }
+                select {
+                    padding: 5px 15px;
+                    border: 2px solid #ff0066;
+                    border-radius: 10px;
+                    margin-left: 10px;
+                    outline: none;
+                }
+            }
+            button {
+                padding: 5px 30px;
+                border-radius: 10px;
+                background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+                border: none;
+                color: white;
+                &:hover {
+                    transform: scale(0.95);
+                    transition-duration: 0.5s;
+                }
+                
+            }
+        }
+    }
+    div.card-view {
+        width: 90%;
+        margin: 0 auto;
+        ul.pagination {
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 20px;
+            li {
+                a {
+                    text-decoration: none;
+                    color: #ff0066;
+                    display: block;
+                    font-weight: bold;
+                    padding: 5px 10px;
+                }
+            }
+        }
+        div.total{
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            p {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1024px) {
+    h1.title-view-spending {
+        text-align: center;
+                font-size: 50px;
+                color: #cc0066;
+                margin-top: 50px;
+                font-weight: bold;
+    }
+    section.view-income-spending {
+        width: 100%;
+        div.filter {
+            width: 70%;
+            margin: 0 auto;
+            form {
+                width: 100%;
+                display: flex;
+                margin: 0 auto;
+                margin-top: 50px;
+                div.form-group {
+                    width: 100%;
+                    input {
+                        padding: 5px 10px;
+                        border: 2px solid #ff0066;
+                        border-radius: 10px;
+                        margin-left: 10px;
+                    }
+                    label {
+                        color: #ff0066;
+                        font-size: 18px;
+                    }
+                    select {
+                        padding: 5px 15px;
+                        border: 2px solid #ff0066;
+                        border-radius: 10px;
+                        margin-left: 10px;
+                        outline: none;
+                    }
+                }
+                button {
+                    padding: 0px 20px;
+                    border-radius: 10px;
+                    background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+                    border: none;
+                    color: white;
+                    &:hover {
+                        transform: scale(0.95);
+                        transition-duration: 0.5s;
+                    }
+                    
+                }
+            }
+        }
+        div.card-view {
+            width: 90%;
+            margin: 0 auto;
+            
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    h1.title-view-spending {
+        text-align: center;
+                font-size: 40px;
+                color: #cc0066;
+                margin-top: 50px;
+                font-weight: bold;
+    }
+    section.view-income-spending {
+        width: 100%;
+        div.filter {
+            width: 70%;
+            margin: 0 auto;
+            form {
+                width: 100%;
+                display: block;
+                margin: 0 auto;
+                margin-top: 50px;
+                div.form-group {
+                    width: 100%;
+                    margin: 15px 0;
+                    input {
+                        width: 50%;
+                        padding: 5px 0px;
+                        border: 2px solid #ff0066;
+                        border-radius: 10px;
+                        margin-left: 10px;
+                    }
+                    label {
+                        width: 40%;
+                        color: #ff0066;
+                        font-size: 18px;
+                    }
+                    select {
+                        padding: 5px 0px;
+                        border: 2px solid #ff0066;
+                        border-radius: 10px;
+                        margin-left: 10px;
+                        outline: none;
+                    }
+                }
+                button {
+                    padding: 5px 30px;
+                    border-radius: 10px;
+                    background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+                    border: none;
+                    color: white;
+                    display: block;
+                    &:hover {
+                        transform: scale(0.95);
+                        transition-duration: 0.5s;
+                    }
+                    
+                }
+            }
+        }
+        div.card-view {
+            width: 90%;
+            margin: 0 auto;
+            
+        }
+    }
+}

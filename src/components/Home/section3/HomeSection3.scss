@@ -1,0 +1,170 @@
+h1.title-home-section3 {
+    font-size: 50px;
+    color: #ff0066;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+}
+
+section.section3 {
+    width: 90%;
+    padding: 0;
+    display: flex;
+    margin: 0 auto;
+    
+    div.card {
+        width: 25%;
+        height: 500px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 10px 10px 35px #a6a6a6;
+        margin: 50px auto;
+        img {
+            width: 60%;
+            height: 220px;
+            margin: 30px 20%;
+        }
+        h4 {
+            width: 90%;
+            margin: 0 5%;
+        }
+        p {
+            width: 90%;
+            margin: 0 5%;
+        }
+        button {
+            width: 200px;
+            height: 50px;
+            border-radius: 50px;
+            background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+            border: none;
+            outline: none;
+            color: white;
+            font-weight: bold;
+            margin: 20px auto;
+            &:hover {
+                transform: scale(0.95);
+                transition-duration: 0.5s;
+            }
+        }
+        &:hover {
+            transform: translateY(-20px);
+            transition-duration: 0.5s;
+        }
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    h1.title-home-section3 {
+        font-size: 50px;
+        color: #ff0066;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    section.section3 {
+        width: 90%;
+        padding: 0;
+        display: block;
+        margin: 0 auto;
+        
+        div.card {
+            width: 40%;
+            height: 500px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 10px 10px 35px #a6a6a6;
+            margin: 50px auto;
+            img {
+                width: 60%;
+                
+                margin: 30px 20%;
+            }
+            h4 {
+                width: 90%;
+                margin: 0 5%;
+            }
+            p {
+                width: 90%;
+                margin: 0 5%;
+            }
+            button {
+                width: 200px;
+                height: 50px;
+                border-radius: 50px;
+                background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+                border: none;
+                outline: none;
+                color: white;
+                font-weight: bold;
+                margin: 20px auto;
+                &:hover {
+                    transform: scale(0.95);
+                    transition-duration: 0.5s;
+                }
+            }
+            &:hover {
+                transform: scale(0.95);
+                transition-duration: 0.5s;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    h1.title-home-section3 {
+        font-size: 40px;
+        color: #ff0066;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    section.section3 {
+        width: 90%;
+        padding: 0;
+        display: block;
+        margin: 0 auto;
+        
+        div.card {
+            width: 70%;
+            height: 500px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 10px 10px 35px #a6a6a6;
+            margin: 50px auto;
+            img {
+                width: 60%;
+                margin: 30px 20%;
+            }
+            h4 {
+                width: 90%;
+                margin: 0 5%;
+            }
+            p {
+                width: 90%;
+                margin: 0 5%;
+            }
+            button {
+                width: 200px;
+                height: 50px;
+                border-radius: 50px;
+                background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+                border: none;
+                outline: none;
+                color: white;
+                font-weight: bold;
+                margin: 20px auto;
+                &:hover {
+                    transform: scale(0.95);
+                    transition-duration: 0.5s;
+                }
+            }
+            &:hover {
+                transform: translateY(-20px);
+                transition-duration: 0.5s;
+            }
+        }
+    }
+}

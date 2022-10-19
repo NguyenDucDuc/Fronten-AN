@@ -1,0 +1,161 @@
+
+    div.card-group {
+        width: 60%;
+        display: flex;
+        box-shadow: 15px 15px 25px #a6a6a6;
+        margin: 60px auto;
+        border-radius: 5px;
+        div.card-group-left {
+            width: 40%;
+            display: flex;
+            div.line{
+                width: 2%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                background: #00b33c;
+                
+            }
+            div.content {
+                p {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #ff0066;
+                    margin: 10px 0;
+                    margin-left: 50px;
+                    &:last-child{
+                        font-weight: normal;
+                        color: black;
+                    }
+                }
+            }
+            
+        }
+        div.card-group-right{
+            width: 60%;
+            display: flex;
+            
+            p {
+                font-weight: bold;
+                margin: auto 0;
+                width: 70%;
+            }
+            i {
+                width: 15% !important;
+                margin: auto 0;
+                margin-left: 10px;
+                font-size: 30px;
+                color: #ff0066;
+                cursor: pointer;
+                
+            }
+        }
+    }
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    div.card-group {
+        width: 90%;
+        display: flex;
+        box-shadow: 15px 15px 25px #a6a6a6;
+        margin: 60px auto;
+        border-radius: 5px;
+        div.card-group-left {
+            width: 40%;
+            
+            p {
+                font-size: 18px;
+                font-weight: bold;
+                color: #ff0066;
+                margin: 10px 0;
+                margin-left: 50px;
+                &:last-child{
+                    font-weight: normal;
+                    color: black;
+                }
+            }
+        }
+        div.card-group-right{
+            width: 60%;
+            display: flex;
+            
+            p {
+                font-weight: bold;
+                margin: auto 0;
+                width: 50%;
+            }
+            i {
+                width: 50%;
+                margin: auto 0;
+                margin-left: 50px;
+                font-size: 30px;
+                color: #ff0066;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    div.card-group {
+        width: 90%;
+        height: 200px;
+        display: block;
+        box-shadow: 15px 15px 25px #a6a6a6;
+        margin: 60px auto;
+        border-radius: 5px;
+        div.card-group-left {
+            width: 90%;
+            display: flex;
+            margin: 0 auto;
+            div.line{
+                width: 2%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                background: #00b33c;
+                
+            }
+            div.content {
+                width: 90%;
+                margin: 0 auto;
+                p {
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #ff0066;
+                    margin: auto 0;
+                    
+                    &:last-child{
+                        font-weight: normal;
+                        color: black;
+                    }
+                }
+            }
+            
+        }
+        div.card-group-right{
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 auto;
+            
+            p {
+                font-weight: bold;
+                margin: 20px auto;
+                text-align: center;
+                width: 100%;
+            }
+            i {
+                 width: 10% !important;
+                margin: auto 20px;
+                // margin-left: 50px;
+                font-size: 30px;
+                color: #ff0066;
+                cursor: pointer;
+            }
+        }
+    }
+}

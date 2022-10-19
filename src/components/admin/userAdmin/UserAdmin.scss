@@ -1,0 +1,28 @@
+div.admin-user {
+    width: 100%;
+    margin-top: 100px;
+    table.table-admin-user {
+        width: 80%;
+        margin: 0 auto;
+        text-align: left;
+        tr {
+            td {
+                font-weight: bold;
+                padding: 7px 0;
+                img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 20px;
+                    margin-right: 10px;
+                }
+                &:last-child{
+                    i {
+                        cursor: pointer;
+                        color: #ff0066;
+                    }
+                }
+            }
+        }
+        
+    }
+}

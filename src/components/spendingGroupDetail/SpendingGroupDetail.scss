@@ -1,0 +1,129 @@
+div.spending-detail-info{
+    width:  70%;
+    margin: 0 auto;
+    p {
+        span {
+            color: #ff0066;
+            font-weight: bold;
+        }
+    }
+}
+div.spending-detail-table {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 80px;
+    box-shadow: 15px 15px 25px #bfbfbf;
+    margin-bottom: 100px;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        
+        tr {
+            font-weight: bold;
+            th {
+                 text-align: center;
+                 
+                 padding: 20px;
+            }
+            td {
+                text-align: center;
+                
+                padding: 20px;
+            }
+        }
+        tr{
+            &:nth-child(even) {
+                background-color: #40bf80;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    div.spending-detail-info{
+        width:  70%;
+        margin: 0 auto;
+        p {
+            span {
+                color: #ff0066;
+                font-weight: bold;
+            }
+        }
+    }
+    div.spending-detail-table {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 80px;
+        box-shadow: 15px 15px 25px #bfbfbf;
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            
+            tr {
+                font-weight: bold;
+                th {
+                     text-align: center;
+                     
+                     padding: 20px;
+                }
+                td {
+                    text-align: center;
+                    
+                    padding: 20px;
+                }
+            }
+            tr{
+                &:nth-child(even) {
+                    background-color: #40bf80;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    div.spending-detail-info{
+        width:  70%;
+        margin: 0 auto;
+        p {
+            span {
+                color: #ff0066;
+                font-weight: bold;
+            }
+        }
+    }
+    div.spending-detail-table {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 80px;
+        box-shadow: 15px 15px 25px #bfbfbf;
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            
+            tr {
+                font-weight: bold;
+                font-size: 13px;
+                th {
+                     text-align: center;
+                     
+                     padding: 20px;
+                }
+                td {
+                    text-align: center;
+                    
+                    padding: 20px;
+                }
+            }
+            tr{
+                &:nth-child(even) {
+                    background-color: #40bf80;
+                }
+            }
+        }
+    }
+}

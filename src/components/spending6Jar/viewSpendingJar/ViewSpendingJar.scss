@@ -1,0 +1,63 @@
+div.view-spending-jar{
+    width: 100%;
+    margin: 0 auto;
+    div.group-button{
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        button{
+            width: 110px;
+            height: 35px;
+            margin: 0 20px;
+                border-radius: 20px;
+                background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+                border: none;
+                color: white;
+                &:hover {
+                    transform: scale(0.95);
+                    transition-duration: 0.5s;
+                }
+        }
+    }
+    div.table-jar {
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 50px;
+        table.table-jar {
+            width: 100%;
+            tr {
+                
+                &:nth-child(even){
+                    background-color: #00b3b3;
+                }
+                &:nth-child(odd){
+                    background-color:  #f2f2f2;
+                }
+                td {
+                    text-align: center;
+                    padding: 10px 0;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    ul.pagination {
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 40px;
+        
+        li {
+            a {
+                display: block;
+                padding: 3px 7px;
+                text-decoration: none;
+                color: #ff0066;
+                font-weight: bold;
+                border-radius: 0px !important;
+
+            }
+        }
+    }
+}

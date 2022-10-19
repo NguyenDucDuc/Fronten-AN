@@ -1,0 +1,263 @@
+$font-color: #ff0066;
+$font-normal: 20px;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,300;1,400&family=Roboto:wght@300&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+div.header {
+    width: 90%;
+    margin: 0 5%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    div.header-right {
+        
+        ul.menu {
+            margin: 0;
+            padding: 0;
+            display: flex;
+             li {
+                list-style-type: none;
+                position: relative;
+                font-size: 18px;
+                font-weight: bold;
+                div.notification {
+                    // margin-top: 20px;
+                    display: none;
+                    position: absolute;
+                    background: white;
+                    box-shadow: 15px 15px 25px #a6a6a6;
+                    width: 450px;
+                    top: 100%;
+                    right: 0;
+                    border-radius: 5px;
+                    z-index: 100;
+                    a {
+                        text-align: center;
+                        color: black;
+                        margin: 10px 0;
+                        
+                        padding: 10px 0;
+                        &:first-child {
+                            padding-top: 20px;
+                            
+                        }
+                    }
+                    
+                }
+                // div.notification::before {
+                //     content: "";
+                //     position: absolute;
+                //     display: block;
+                //     border-style: solid;
+                //     border-width: 20px 15px;
+                //     border-color: transparent transparent whitesmoke transparent;
+                    
+                //     top: -30px;
+                //     right: 18px;
+                // }
+                &:hover > div.notification {
+                    display: block;
+                }
+                a {
+                    text-decoration: none;
+                    color: #ff0066;
+                    display: block;
+                    padding: 0 25px;
+                    i {
+                        margin-left: 5px;
+                        position: relative;
+                        span{
+                            font-size: 15px;
+                            font-weight: bold;
+                            color: black;
+                            top: -30%;
+                            background-color: #00ccff;
+                            // width: 20px;
+                            // height: 20px;
+                            padding: 3px 8px;
+                            border-radius: 10px;
+                            text-align: center;
+                            position: absolute;
+                        }
+                    }
+                }
+                ul.sub-menu {
+                    margin: 0;
+                    padding: 0;
+                    
+                    position: absolute;
+                    top: 100%;
+                    left: -24%;
+                    display: none;
+                    background-color: white;
+                    border-radius: 5px;
+                    li {
+                        a {
+                            padding: 10px 50px;
+                            width: 250px;
+                        }
+                        
+                    }
+                }
+                &:hover > ul.sub-menu {
+                    display: block;
+                    animation: menuMove 0.4s ease-in-out;
+                    z-index: 100;
+                    @keyframes menuMove {
+                        0%{
+                            transform: translateY(50px);
+                        }
+                        100% {
+                            transform: translateY(0);
+                        }
+                    }
+                }
+             }
+        }
+    }
+    div.menu-bar {
+        display: none;
+        i {
+            font-size: 25px;
+            color: #ff0066;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1024px) {
+    div.header {
+        width: 90%;
+        margin: 0 5%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 20px;
+    
+        div.header-right {
+            width: 100%;
+            height: 0px;
+            z-index: 10;
+            display: none;
+            ul.menu {
+                margin: 0;
+                padding: 0;
+                padding-left: 30px;
+                display: block;
+                background-color: white;
+                box-shadow: 15px 15px 25px #a6a6a6;
+                border-radius: 10px;
+                flex-direction: column;
+                 li {
+                    list-style-type: none;
+                    position: relative;
+                    font-size: 20px;
+                    
+                    a {
+                        text-decoration: none;
+                        color: #ff0066;
+                        display: block;
+                        padding: 5px 0px;
+                    }
+                    ul.sub-menu {
+                        position: initial;
+                        top: 0;
+                        left: 0;
+                        display: none;
+                        
+                        
+                        li {
+                            padding: 0 0;
+                            a {
+                                color: #ff0066;
+                            }
+                        }
+                    }
+                    &:hover > ul.sub-menu {
+                        display: block;
+                        
+                    }
+                 }
+            }
+        }
+        div.menu-bar {
+            display: block;
+            i {
+                font-size: 25px;
+                color: #ff0066;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    div.header {
+        width: 90%;
+        margin: 0 5%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 20px;
+    
+        div.header-right {
+            display: none;
+            width: 100%;
+            height: 0px;
+            z-index: 10;
+            display: block;
+            visibility: visible;
+            ul.menu {
+                margin: 0;
+                padding: 0;
+                padding-left: 30px;
+                display: block;
+                background-color: white;
+                box-shadow: 15px 15px 25px #a6a6a6;
+                border-radius: 10px;
+                flex-direction: column;
+                 li {
+                    list-style-type: none;
+                    position: relative;
+                    font-size: 20px;
+                    a {
+                        text-decoration: none;
+                        color: #ff0066;
+                        display: block;
+                        padding: 5px 0px;
+                    }
+                    ul.sub-menu {
+                        // background-color: #3399ff;
+                        position: initial;
+                        top: 0;
+                        left: 0;
+                        display: none;
+                        li {
+                            padding: 0 0;
+                            a {
+                                color: #ff0066;
+                            }
+                        }
+                    }
+                    &:hover > ul.sub-menu  {
+                        display: block !important;
+                        
+                    }
+                 }
+            }
+        }
+        div.menu-bar {
+            display: block;
+            i {
+                font-size: 25px;
+                color: #ff0066;
+            }
+            
+        }
+    }
+}

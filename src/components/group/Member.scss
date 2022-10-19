@@ -1,0 +1,296 @@
+h1.title-member-manager {
+    text-align: center;
+            font-size: 50px;
+            color: #cc0066;
+            margin-top: 50px;
+            font-weight: bold;
+}
+div.member-loading {
+    width: 10%;
+    height: 450px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    div.ring {
+        width: 100px;
+        height: 100px;
+        border: 5px solid #00ace6;
+        border-radius: 50px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        animation: ringTurn 0.7s infinite ease-in-out;
+        @keyframes ringTurn {
+            to {
+                transform:  rotate(360deg);
+            }
+        }
+    }
+}
+div.add-member {
+    
+    display: flex;
+    width: 50%;
+    margin: 50px auto;
+    
+    justify-content: center;
+    div.search-left {
+        width: 50%;
+        margin: 0 auto;
+        input {
+            width: 100%;
+            display: flex;
+            margin: 0 auto;
+            border: none;
+            border-bottom: 1.5px solid #ff0066;
+            padding: 8px 0px;
+            &:focus {
+                outline: none;
+            }
+            
+        }
+        
+        div.username-search {
+            width: 200px;
+            height: 200px;
+            box-shadow: 15px 15px 25px #999999;
+            display: block;
+            border-radius: 0px 0px 5px 5px;
+            overflow-y: scroll;
+            p {
+                text-align: center;
+                cursor: pointer;
+                padding: 10px 0;
+            }
+        }
+    }
+    button {
+        display: flex;
+        width: 160px;
+        height: 40px;
+        margin-right: auto;
+        padding: 9px 60px;
+        border-radius: 20px;
+        background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+        border: none;
+        color: white;
+        &:hover {
+            transform: scale(0.95);
+            transition-duration: 0.5s;
+        }
+        margin-left: 20px;
+        
+    }
+    
+}
+div.card-members {
+    width: 90%;
+    margin: 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+    div.card-member {
+        margin: 50px 40px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    h1.title-member-manager {
+        text-align: center;
+                font-size: 50px;
+                color: #cc0066;
+                margin-top: 50px;
+                font-weight: bold;
+    }
+    div.member-loading {
+        width: 10%;
+        height: 450px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        div.ring {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #00ace6;
+            border-radius: 50px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            animation: ringTurn 0.7s infinite ease-in-out;
+            @keyframes ringTurn {
+                to {
+                    transform:  rotate(360deg);
+                }
+            }
+        }
+    }
+    div.add-member {
+        
+        display: flex;
+        width: 50%;
+        margin: 50px auto;
+        
+        justify-content: center;
+        div.search-left {
+            width: 50%;
+            margin: 0 auto;
+            input {
+                width: 100%;
+                display: flex;
+                margin: 0 auto;
+                border: none;
+                border-bottom: 1.5px solid #ff0066;
+                padding: 8px 0px;
+                &:focus {
+                    outline: none;
+                }
+                
+            }
+            
+            div.username-search {
+                width: 200px;
+                height: 200px;
+                box-shadow: 15px 15px 25px #999999;
+                display: block;
+                border-radius: 0px 0px 5px 5px;
+                overflow-y: scroll;
+                p {
+                    text-align: center;
+                    cursor: pointer;
+                    padding: 10px 0;
+                }
+            }
+        }
+        button {
+            display: flex;
+            width: 160px;
+            height: 40px;
+            margin-right: auto;
+            padding: 9px 60px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+            border: none;
+            color: white;
+            &:hover {
+                transform: scale(0.95);
+                transition-duration: 0.5s;
+            }
+            margin-left: 20px;
+            
+        }
+        
+    }
+    div.card-members {
+        width: 90%;
+        margin: 0 5%;
+        display: flex;
+        justify-content: center;
+       
+        div.card-member {
+            margin: 50px 40px;
+        }
+    }
+}
+
+@media screen and (max-width:767px) {
+    h1.title-member-manager {
+        text-align: center;
+                font-size: 35px;
+                color: #cc0066;
+                margin-top: 50px;
+                font-weight: bold;
+    }
+    div.member-loading {
+        width: 10%;
+        height: 450px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        div.ring {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #00ace6;
+            border-radius: 50px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            animation: ringTurn 0.7s infinite ease-in-out;
+            @keyframes ringTurn {
+                to {
+                    transform:  rotate(360deg);
+                }
+            }
+        }
+    }
+    div.add-member {
+        
+        display: flex;
+        width: 90%;
+        margin: 50px auto;
+        
+        justify-content: center;
+        div.search-left {
+            width: 50%;
+            margin: 0 auto;
+            input {
+                width: 90%;
+                display: flex;
+                margin: 0 auto;
+                border: none;
+                border-bottom: 1.5px solid #ff0066;
+                padding: 8px 0px;
+                &:focus {
+                    outline: none;
+                }
+                
+            }
+            
+            div.username-search {
+                width: 200px;
+                height: 200px;
+                box-shadow: 15px 15px 25px #999999;
+                display: block;
+                border-radius: 0px 0px 5px 5px;
+                overflow-y: scroll;
+                p {
+                    text-align: center;
+                    cursor: pointer;
+                    padding: 10px 0;
+                }
+            }
+        }
+        button {
+            display: flex;
+            width: 150px;
+            height: 40px;
+            margin-right: auto;
+            padding: 9px 60px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+            border: none;
+            color: white;
+            &:hover {
+                transform: scale(0.95);
+                transition-duration: 0.5s;
+            }
+            margin-left: 20px;
+            
+        }
+        
+    }
+    div.card-members {
+        width: 90%;
+        margin: 0 5%;
+        display: block;
+        justify-content: center;
+       
+        div.card-member {
+            margin: 50px 40px;
+            width: 75%;
+        }
+    }
+}

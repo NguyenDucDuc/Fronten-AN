@@ -1,0 +1,111 @@
+section.section4 {
+    background-image: url(../../../img/subscribe-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 350px;
+    h1 {
+        text-align: center;
+        font-size: 50px;
+        padding-top: 50px;
+    }
+    p {
+        font-size: 20px;
+        text-align: center;
+    }
+    input {
+        display: block;
+        margin: 0 auto;
+        // padding: 10px 120px;
+        padding-left: 40px;
+        width: 480px;
+        height: 50px;
+        border-radius: 30px;
+        border: 2px solid white;
+        outline: none;
+        background-color: transparent;
+        color: white;
+        &::placeholder {
+            color: white;
+            padding-left: 40px;
+        }
+    }
+    button {
+        display: block;
+        width: 200px;
+        height: 45px;
+        border-radius: 50px;
+        background: white;
+        border: none;
+        outline: none;
+        color: black;
+        font-weight: bold;
+        margin: 20px auto;
+        outline: none;
+        &:hover {
+            transform: scale(0.95);
+            transition-duration: 0.5s;
+        }
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    
+}
+
+@media screen and (max-width: 767px) {
+    section.section4 {
+        background-image: url(../../../img/subscribe-bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 350px;
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            padding-top: 50px;
+        }
+        p {
+            font-size: 20px;
+            text-align: center;
+        }
+        input {
+            display: flex;
+            margin: 0 auto;
+            width: 80%;
+            border-radius: 30px;
+            border: 2px solid white;
+            outline: none;
+            background-color: transparent;
+            color: white;
+            &::placeholder {
+                color: white;
+            }
+        }
+        button {
+            display: block;
+            width: 200px;
+            height: 45px;
+            border-radius: 50px;
+            background: white;
+            border: none;
+            outline: none;
+            color: black;
+            font-weight: bold;
+            margin: 20px auto;
+            outline: none;
+            &:hover {
+                transform: scale(0.95);
+                transition-duration: 0.5s;
+            }
+            &:focus {
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}

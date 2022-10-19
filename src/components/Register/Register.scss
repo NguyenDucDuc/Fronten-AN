@@ -1,0 +1,231 @@
+div.register {
+    width: 100%;
+    height: 1050px;
+      
+    form {
+        width: 40%;
+        margin: 0 auto;
+        height: 1050px;
+        box-shadow: 15px 15px 25px #b3b3b3;
+        border-radius: 15px;
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            color: #cc0066;
+            margin-top: 100px;
+            font-weight: bold;
+            padding-top: 100px;
+        }
+        div.form-group {
+            width: 90%;
+            margin: 40px auto;
+            display: block;
+            input {
+                width: 70%;
+                display: flex;
+                margin: 0 auto;
+                border: none;
+                border-bottom: 1.5px solid #ff0066;
+                padding: 8px 0px;
+                &:focus {
+                    
+                    outline: none;
+                }
+                &:last-child {
+                    &::-webkit-file-upload-button {
+                        background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+                        border: none;
+                        padding: 5px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        color: white;
+                    }
+                }
+                
+            }
+            select {
+                width: 70%;
+                display: flex;
+                margin: 0 auto;
+                padding: 8px 0px;
+                border: none;
+                border-bottom: 1.5px solid #ff0066;
+                &:focus {
+                    outline: none;
+                }
+                
+            }
+            label {
+                // text-align: right;
+                display: block;
+                width: 40%;
+                margin-left: 15%;
+                color: #ff0066;
+            }
+            p.errMsg {
+                color: #0099ff;
+                font-weight: bold;
+                margin-left: 15%;
+                margin-top: 10px;
+            }
+            &:first-child {
+                padding-top: 100px;
+            }
+        }
+        button {
+            display: flex;
+            margin: 0 auto;
+            padding: 9px 60px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+            border: none;
+            color: white;
+            &:hover {
+                transform: scale(0.95);
+                transition-duration: 0.5s;
+            }
+            
+        }
+        div.spinner {
+            display: flex;
+            margin: 0 auto;
+        }
+    }
+}
+
+
+@media screen and (min-width: 768px) and (max-width:1024px) {
+    div.register {
+        width: 100%;
+        // height: 1000px;
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            color: #cc0066;
+            margin-top: 100px;
+        }
+        form {
+            width: 70%;
+            // height: 850px;
+            margin: 0 auto;
+            box-shadow: 15px 15px 25px #b3b3b3;
+            border-radius: 15px;
+            div.form-group {
+                width: 90%;
+                margin: 40px auto;
+                display: block;
+                input {
+                    width: 70%;
+                    display: flex;
+                    margin: 0 auto;
+                    border: none;
+                    border-bottom: 1.5px solid #ff0066;
+                    padding: 8px 0px;
+                    &:focus {
+                        
+                        outline: none;
+                    }
+                    &:last-child {
+                        &::-webkit-file-upload-button {
+                            background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+                            border: none;
+                            padding: 5px;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            color: white;
+                        }
+                    }
+                    
+                }
+                label {
+                    // text-align: right;
+                    display: block;
+                    width: 40%;
+                    margin-left: 15%;
+                    color: #ff0066;
+                }
+                &:first-child {
+                    padding-top: 100px;
+                }
+            }
+            button {
+                display: flex;
+                margin: 0 auto;
+                padding: 9px 60px;
+                border-radius: 20px;
+                background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+                border: none;
+                color: white;
+                
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    div.register {
+        width: 100%;
+        // height: 1000px;
+        form {
+            width: 90%;
+            // height: 850px;
+            margin: 0 auto;
+            box-shadow: none;
+            border-radius: 15px;
+            h1 {
+                text-align: center;
+                font-size: 50px;
+                color: #cc0066;
+                margin-top: 100px;
+            }
+            div.form-group {
+                width: 90%;
+                margin: 40px auto;
+                display: block;
+                input {
+                    width: 90%;
+                    display: flex;
+                    margin: 0 auto;
+                    border: none;
+                    border-bottom: 1.5px solid #ff0066;
+                    padding: 8px 0px;
+                    &:focus {
+                        
+                        outline: none;
+                    }
+                    &:last-child {
+                        &::-webkit-file-upload-button {
+                            background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+                            border: none;
+                            padding: 5px;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            color: white;
+                        }
+                    }
+                    
+                }
+                label {
+                    // text-align: right;
+                    display: block;
+                    width: 40%;
+                    margin-left: 5%;
+                    color: #ff0066;
+                }
+                &:first-child {
+                    padding-top: 100px;
+                }
+            }
+            button {
+                display: flex;
+                margin: 0 auto;
+                padding: 9px 60px;
+                border-radius: 20px;
+                background: linear-gradient(to right, #990099 0%, #ff3399 100%);
+                border: none;
+                color: white;
+                
+            }
+        }
+    }
+}

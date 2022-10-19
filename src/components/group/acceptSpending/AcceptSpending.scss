@@ -1,0 +1,31 @@
+h1.title-accept-spending {
+    text-align: center;
+    font-size: 50px;
+    color: #cc0066;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    h1.title-accept-spending {
+        text-align: center;
+        font-size: 45px;
+        color: #cc0066;
+        margin-top: 50px;
+        font-weight: bold;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    h1.title-accept-spending {
+        text-align: center;
+        font-size: 30px;
+        color: #cc0066;
+        margin-top: 50px;
+        font-weight: bold;
+    }
+}
+
