@@ -23,15 +23,15 @@ const userAdminSlice = createSlice({
     name: "userAdmin",
     initialState: {
         user: {
-            username: null,
-            avatar: null,
+            fullname: '',
+            avatar: ''
         },
         status: null,
         error: null
     },
     reducers: {
-        updateUsernameAdmin: (state, action) => {
-            state.user.username = action.payload;
+        updateUserAdmin: (state, action) => {
+            state.user = action.payload;
         },
         logoutUserAdmin: (state, action) => {
             state.user.username = null;
@@ -43,8 +43,7 @@ const userAdminSlice = createSlice({
             state.status = "loading";
         },
         [loginAdminAsyncThunk.fulfilled]: (state, action) => {
-            state.user.username = action.payload.fullname;
-            state.user.avatar = action.payload.avatar;
+            state.user = action.payload.user;
             state.status = "success";
         },
         [loginAdminAsyncThunk.rejected]: (state, action) => {
@@ -54,5 +53,5 @@ const userAdminSlice = createSlice({
     }
 })
 
-export const {updateUsernameAdmin, logoutUserAdmin} = userAdminSlice.actions
+export const {updateUserAdmin, logoutUserAdmin} = userAdminSlice.actions
 export default userAdminSlice.reducer

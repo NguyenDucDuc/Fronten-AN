@@ -9,7 +9,7 @@ import jwt_decode from "jwt-decode"
 import { authAPI, authAPIAdmin, endpoints } from "../configs/API"
 import { useDispatch, useSelector } from "react-redux"
 import { updateUsername } from "../store/UserSlice"
-import { logoutUserAdmin, updateUsernameAdmin } from "../store/UserAdminSlice"
+import { logoutUserAdmin, updateUserAdmin } from "../store/UserAdminSlice"
 
 
 
@@ -18,6 +18,8 @@ const HomeAdmin = () => {
     const dispatch = useDispatch()
     const [showMenu, setShowMenu] = useState(true)
     const [showContent, setShowContent] = useState(false)
+    const user = useSelector(state => state.userAdmin.user) // do backend tra ve gom ca access token {'accessToken': '', 'user': ''}
+    const status = useSelector(state => state.userAdmin.status)
 
     // useEffect( () => {
     //     const loadAccessToken = async () => {
@@ -44,13 +46,13 @@ const HomeAdmin = () => {
             } else {
                 const resCurrentUser = await authAPIAdmin().get(endpoints["currentUser"])
                 console.log(resCurrentUser.data)
-                dispatch(updateUsernameAdmin(resCurrentUser.data.fullname))
+                dispatch(updateUserAdmin(resCurrentUser.data))
             }
+            console.log(user)
         }
         checkLogin()
     }, [])
-    const user = useSelector(state => state.userAdmin.user)
-    const status = useSelector(state => state.userAdmin.status)
+    
     const handleMenuBar = (event) => {
         event.preventDefault()
         setShowMenu(!showMenu)
@@ -69,6 +71,7 @@ const HomeAdmin = () => {
         event.preventDefault();
         cookies.remove("accessTokenAdmin")
         dispatch(logoutUserAdmin())
+        nav('/login-admin')
     }
 
 
@@ -138,7 +141,7 @@ const HomeAdmin = () => {
                     
                     <div className="header-right">
                         <img src={user.avatar === null ? "https://res.cloudinary.com/djbju13al/image/upload/v1665631876/Avatar/1665631874144.png" : user.avatar} />
-                        <p>{user.username !== null ? user.username : null}</p>
+                        <p>{user.fullname}</p>
                         <i class="fa-solid fa-right-from-bracket" onClick={logoutHandle}></i>
                     </div>
                 </div>

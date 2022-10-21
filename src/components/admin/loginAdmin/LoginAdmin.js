@@ -1,7 +1,7 @@
 import "./LoginAdmin.scss"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { loginAdminAsyncThunk } from "../../store/UserAdminSlice"
+import { loginAdminAsyncThunk, updateUserAdmin } from "../../store/UserAdminSlice"
 import { useNavigate } from "react-router-dom"
 import { updatePathName } from "../../store/PathNameSlice"
 import {useFormik} from "formik"
@@ -34,6 +34,7 @@ const LoginAdmin = () => {
             console.log(res)
             if(res.meta.requestStatus === "fulfilled"){
                 cookies.save('accessTokenAdmin', res.payload.accessToken)
+                // dispatch(updateUserAdmin(res.payload))
                 nav("/admin/stats")
             }
         }

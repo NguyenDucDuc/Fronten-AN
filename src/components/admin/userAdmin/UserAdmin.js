@@ -40,7 +40,7 @@ const UserAdmin = () => {
                     </thead>
                     {users !== undefined ? users.map((u,idx) => <tr key={idx}>
                         <td>
-                            <img src={u.avatar === null ? "https://res.cloudinary.com/djbju13al/image/upload/v1665631876/Avatar/1665631874144.png" : u.avatar} />
+                            <img src={u.avatar === null ? "https://res.cloudinary.com/djbju13al/image/upload/v1666327537/Avatar/1666327534950.png" : u.avatar} />
                             {u.fullname}
                         </td>
                         <td>{u.username}</td>
