@@ -1,0 +1,85 @@
+div.footer {
+    background-image: url(../../img/subscribe-bg.png);
+    background-size: cover;
+    div.footer-items {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        margin-top: 50px;
+        padding-top: 20px;
+        div.col {
+            width: 30%;
+            p {
+                color: white;
+                font-weight: bold;
+                font-size: 23px;
+                
+            }
+            ul.list {
+                margin: 0;
+                padding: 0;
+                li {
+                    list-style-type: none;
+                    padding: 10px 0;
+                    a {
+                        text-decoration: none;
+                        color: white;
+                        
+                        i {
+                            font-size: 25px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    div.footer {
+        display: block;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    div.footer {
+        div.footer-items {
+            width: 90%;
+            margin: 0 auto;
+            display: block;
+            margin-top: 50px;
+            padding-top: 20px;
+            div.col {
+                width: 100%;
+                margin-bottom: 50px;
+                p {
+                    color: white;
+                    font-weight: bold;
+                    font-size: 23px;
+                    
+                }
+                ul.list {
+                    margin: 0;
+                    padding: 0;
+                    li {
+                        list-style-type: none;
+                        padding: 10px 0;
+                        a {
+                            text-decoration: none;
+                            color: white;
+                            
+                            i {
+                                font-size: 25px;
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }   
+    
+}

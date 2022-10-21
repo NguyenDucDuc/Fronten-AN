@@ -1,0 +1,37 @@
+div.home-section5 {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    div.home-section5 {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 100px;
+        display: block;
+        div.left {
+            img {
+                width:  100%;
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    div.home-section5 {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 100px;
+        display: block;
+        div.left {
+            img {
+                width:  100%;
+            }
+            
+        }
+    }
+}

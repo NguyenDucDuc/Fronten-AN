@@ -35,6 +35,7 @@ import Test from './components/Test';
 import ForgetPassword from './components/forgetPassword/ForgetPassword';
 import ResetPassword from './components/resetPassword/ResetPassword';
 import Donate from './components/donate/Donate';
+import Footer from './components/footer/Footer';
 
 export const socket = io("http://localhost:5000")
 
@@ -107,6 +108,7 @@ const App = () => {
 
         <Route path='/test' element={<Test />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

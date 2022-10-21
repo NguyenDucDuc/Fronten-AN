@@ -5,9 +5,10 @@ import { authAPI, authAPIAdmin, endpoints } from "../../configs/API"
 
 
 const UserAdmin = () => {
-    const [active, setActive] = useState(false)
+    // const [active, setActive] = useState(false)
     const [users, setUsers] = useState()
-    
+    const [active, setActive] = useState(true)
+
     useEffect(() => {
         const loadAllUser = async () => {
             const res = await authAPI().get(endpoints["getAllUser"])
@@ -16,11 +17,11 @@ const UserAdmin = () => {
         }
 
         loadAllUser()
-    },[active])
+    }, [active])
 
     const lockUser = async (userId) => {
         const res = await authAPIAdmin().post(endpoints["lockUser"](userId))
-        console.log(res.data)
+        // console.log(res.data)
         setActive(!active)
     }
     return (
@@ -38,7 +39,7 @@ const UserAdmin = () => {
 
                         </tr>
                     </thead>
-                    {users !== undefined ? users.map((u,idx) => <tr key={idx}>
+                    {users !== undefined ? users.map((u, idx) => <tr key={idx}>
                         <td>
                             <img src={u.avatar === null ? "https://res.cloudinary.com/djbju13al/image/upload/v1666327537/Avatar/1666327534950.png" : u.avatar} />
                             {u.fullname}
@@ -52,7 +53,7 @@ const UserAdmin = () => {
                         null
                     }
                 </table>
-                
+
             </div>
         </>
     )
