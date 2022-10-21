@@ -34,6 +34,7 @@ import UserAdmin from './components/admin/userAdmin/UserAdmin';
 import Test from './components/Test';
 import ForgetPassword from './components/forgetPassword/ForgetPassword';
 import ResetPassword from './components/resetPassword/ResetPassword';
+import Donate from './components/donate/Donate';
 
 export const socket = io("http://localhost:5000")
 
@@ -94,6 +95,7 @@ const App = () => {
           <Route path='/view-spending-jar' element={<ViewSpendingJar />} />
           <Route path='/forget-password' element={<ForgetPassword />} />
           <Route path='/reset-password' element={<ResetPassword />} />
+          <Route path='/donate' element={<Donate />} />
         </Route>
         {/* ROUTE ADMIN */}
 

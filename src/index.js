@@ -6,11 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux"
 import store from './components/store/Store';
 import { GoogleOAuthProvider } from "@react-oauth/google"
+import {PayPalScriptProvider} from "@paypal/react-paypal-js"
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <GoogleOAuthProvider clientId='538208484298-mg9kcv97relvncsrjaf3dfjr0jnbojsu.apps.googleusercontent.com'>
-      <App />
+      <PayPalScriptProvider options={{ "client-id": "AddNYh4aiveLUTl1Eqm7Juz_mgDaW__cIYGPsHlcQXRlETzKxx30nvMJ60pmt9UTQ0jg10XCXa8Lk_-w" }}>
+        <App />
+      </PayPalScriptProvider>
     </GoogleOAuthProvider>
   </Provider>
 );

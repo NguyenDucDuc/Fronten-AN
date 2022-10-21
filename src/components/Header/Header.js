@@ -125,7 +125,7 @@ const Header = () => {
                                         <li><Link to="/">Menu</Link></li>
                                     </ul>
                                 </li>
-                                <li><Link to="/">Menu</Link>
+                                <li><Link to="/donate">Ủng hộ tác giả</Link>
                                     <ul className="sub-menu">
                                         <li><Link to="/">Menu</Link></li>
                                         <li><Link to="/">Menu</Link></li>
@@ -133,7 +133,7 @@ const Header = () => {
                                         <li><Link to="/">Menu</Link></li>
                                     </ul>
                                 </li>
-                                <li><Link to="/warning">Menu <i className="fa-solid fa-bell">{count !== null ?<span>{count}</span> : null }</i></Link>
+                                <li><Link to="/warning">Cảnh báo <i className="fa-solid fa-bell">{count !== null ?<span>{count}</span> : null }</i></Link>
                                     <div className="notification">
                                         {/* <a href="#">Thu nhập của bạn vừa tăng 120.000VND</a>
                                     <a href="#">Thu nhập của bạn vừa tăng 120.000VND</a> */}
