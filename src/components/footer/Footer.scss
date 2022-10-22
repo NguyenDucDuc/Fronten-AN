@@ -21,6 +21,10 @@ div.footer {
                 li {
                     list-style-type: none;
                     padding: 10px 0;
+                    &:hover {
+                        margin-left: 10px;
+                        transition-duration: 0.7s;
+                    }
                     a {
                         text-decoration: none;
                         color: white;

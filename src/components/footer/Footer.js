@@ -9,6 +9,8 @@ const Footer = () => {
                 <div className="footer-items">
                     <div className="quick-link col">
                         <p>QUICK LINK</p>
+                        <div style={{width: '150px', height: '3px', background: 'white', marginTop: '-15px', marginBottom: '30px'}}></div>
+
                         <ul className="list">
                             <li><Link to='/'>Add Income Spending</Link></li>
                             <li><Link to='/'>View Income Spending</Link></li>
@@ -19,6 +21,7 @@ const Footer = () => {
                     </div>
                     <div className="follow-us col">
                         <p>FOLLOW US</p>
+                        <div style={{width: '150px', height: '3px', background: 'white', marginTop: '-15px', marginBottom: '30px'}}></div>
                         <ul className="list">
                             <li><Link to='/'><i class="fa-brands fa-facebook"></i>Facebook</Link></li>
                             <li><Link to='/'><i class="fa-brands fa-instagram"></i>Instagram</Link></li>
@@ -29,6 +32,8 @@ const Footer = () => {
                     </div>
                     <div className="contact-info col">
                         <p>CONTACT INFO</p>
+                        <div style={{width: '150px', height: '3px', background: 'white', marginTop: '-15px', marginBottom: '30px'}}></div>
+
                         <ul className="list">
                             <li><Link to='/'><i class="fa-solid fa-phone"></i>0356 879 921</Link></li>
                             <li><Link to='/'><i class="fa-solid fa-location-dot"></i>623 Điện Biên Phủ</Link></li>
