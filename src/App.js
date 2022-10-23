@@ -76,7 +76,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Header />}>
+        {/* <Route path='/' element={<Header />}>
           <Route path='/' element={<Home />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
@@ -97,6 +97,30 @@ const App = () => {
           <Route path='/forget-password' element={<ForgetPassword />} />
           <Route path='/reset-password' element={<ResetPassword />} />
           <Route path='/donate' element={<Donate />} />
+        </Route> */}
+        <Route path='/' element={<Header />}>
+          <Route path='/' element={<Footer />} >
+            <Route path='/' element={<Home />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/add-income-spending' element={<IncomeSpending />} />
+            <Route path='/view-income-spending' element={<ViewIncomeSpending />} />
+            <Route path='/create-group' element={<CreateGroup />} />
+            <Route path='/group-manager' element={<GroupManager />} />
+            <Route path='/group-manager/:groupId/member' element={<Member />} />
+            <Route path='/my-groups' element={<MyGroup />} />
+            <Route path='/my-groups/:groupId/add-income' element={<AddSpendingGroup />} />
+            <Route path='/group-manager/:groupId/accept-spending' element={<AcceptSpending />} />
+            <Route path='/group-manager/:groupId/chat-group' element={<ChatGroup />} />
+            <Route path='/warning' element={<Warning />} />
+            <Route path='/group-manager/:groupId/spending-detail' element={<SpendingGroupDetail />} />
+            <Route path='/stats' element={<Stats />} />
+            <Route path='/add-spending-6-jar' element={<Spending6Jar />} />
+            <Route path='/view-spending-jar' element={<ViewSpendingJar />} />
+            <Route path='/forget-password' element={<ForgetPassword />} />
+            <Route path='/reset-password' element={<ResetPassword />} />
+            <Route path='/donate' element={<Donate />} />
+          </Route>
         </Route>
         {/* ROUTE ADMIN */}
 
@@ -108,7 +132,7 @@ const App = () => {
 
         <Route path='/test' element={<Test />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   )
 }

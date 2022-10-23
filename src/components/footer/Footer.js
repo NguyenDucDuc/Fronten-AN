@@ -1,10 +1,11 @@
 import "./Footer.scss"
 import bgFooter from '../../img/subscribe-bg.png'
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 const Footer = () => {
     return (
         <>
+            <Outlet />
             <div className="footer">
                 <div className="footer-items">
                     <div className="quick-link col">
