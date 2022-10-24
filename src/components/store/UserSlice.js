@@ -14,7 +14,7 @@ export const loginAsyncThunk = createAsyncThunk("loginAsyncThunk", async (reqBod
         if (res.data.accessToken) {
             cookies.save("accessToken", res.data.accessToken)
         }
-        return res.data
+        return res.data.user
     } catch (error) {
         console.log(error)
         return rejectWithValue(error.response.data)
@@ -23,12 +23,15 @@ export const loginAsyncThunk = createAsyncThunk("loginAsyncThunk", async (reqBod
 })
 
 export const loginGoogleAsyncThunk = createAsyncThunk("loginGoolgeAsyncThunk", async (tokenResponse) => {
+    // call api cua google de lay thong tin user
     const info = await axios.get("https://www.googleapis.com/oauth2/v3/userinfo", {
         headers: {
             "Authorization": `Bearer ${tokenResponse.access_token}`
         }
     })
     console.log(info)
+
+    // get or create 1 user moi voi thong tin vua lay duoc
     const res = await API.post(endpoints["googleLogin"], {
         username: info.data.email,
         fullname: info.data.name,
@@ -36,7 +39,8 @@ export const loginGoogleAsyncThunk = createAsyncThunk("loginGoolgeAsyncThunk", a
         avatar: info.data.picture
     })
     console.log(res.data)
-
+    
+    // dung user moi dang nhap vao he thong de lay access token, tu do su dung cac chuc nang
     const resLogin = await API.post(endpoints["googleLoginEmail"], {
         username: res.data.username,
         email: res.data.email
@@ -53,16 +57,20 @@ export const loginGoogleAsyncThunk = createAsyncThunk("loginGoolgeAsyncThunk", a
 const userSlice = createSlice({
     name: "user",
     initialState: {
-        username: null,
+        user: {
+            fullname: null,
+            username: null,
+        },
         status: null,
-        error: null
+        error: null,
     },
     reducers: {
         logoutReducer: (state) => {
-            state.username = null;
+            state.user.username = null;
+            state.user.fullname = null;
         },
         updateUsername: (state, action) => {
-            state.username = action.payload;
+            state.user = action.payload;
         }
     },
     extraReducers: {
@@ -70,7 +78,7 @@ const userSlice = createSlice({
             state.status = "loading";
         },
         [loginAsyncThunk.fulfilled]: (state, action) => {
-            state.username = action.payload.user.username;
+            state.user = action.payload;
             state.status = "success";
         },
         [loginAsyncThunk.rejected]: (state, action) => {
@@ -83,11 +91,10 @@ const userSlice = createSlice({
         },
         [loginGoogleAsyncThunk.fulfilled]: (state, action) => {
             state.status = "success";
-            state.username = action.payload.fullname;
+            state.user.fullname = action.payload.fullname;
         },
         [loginGoogleAsyncThunk.rejected]: (state) => {
             state.status = "error";
-            
         }
     }
 })

@@ -5,3 +5,17 @@ h1.title-my-groups {
             margin-top: 50px;
             font-weight: bold;
 }
+ul.pagination {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20px;
+    li {
+        a {
+            text-decoration: none;
+            color: #ff0066;
+            display: block;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+    }
+}

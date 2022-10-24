@@ -31,6 +31,7 @@ export const endpoints = {
     "getAllMessage": (groupId) => `/api/v1/message-group/${groupId}`,
     "countSpendingDay": "/api/v1/income-spending-count-spending-day",
     "countWarning": "/api/v1/warning-count",
+    "deleteWarningByContent": "/api/v1/warning",
     "spendingGroupDetail": (groupId) => `/api/v1/spending-group-detail/${groupId}`,
     "googleUserRegister": "/api/v1/user-google",
     "googleLogin": "/api/v1/user/google-login",
@@ -47,7 +48,7 @@ export const endpoints = {
     "countAllUser": "/api/v1/user/count",
     "forgetPassword": "/api/v1/user/forget-password",
     "resetPassword": "/api/v1/user/reset-password",
-    
+    "countGroup": "/api/v1/group-count"
 
 }
 

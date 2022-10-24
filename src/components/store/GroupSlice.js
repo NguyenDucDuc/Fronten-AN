@@ -2,8 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { authAPI, endpoints } from "../configs/API";
 
 
-export const getAllGroupAsyncThunk = createAsyncThunk("getAllGroupAsyncThunk", async () => {
-    const res = await authAPI().get(endpoints["getGroupByUser"])
+export const getAllGroupAsyncThunk = createAsyncThunk("getAllGroupAsyncThunk", async (url) => {
+    // const res = await authAPI().get(endpoints["getGroupByUser"])
+    const res = await authAPI().get(url)
     console.log(res.data)
     return res.data
 })

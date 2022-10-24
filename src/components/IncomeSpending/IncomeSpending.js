@@ -4,7 +4,7 @@ import { authAPI, endpoints } from "../configs/API"
 import "./IncomeSpending.scss"
 import { useDispatch, useSelector } from "react-redux"
 import { socket } from "../../App"
-import { addWarningAsyncThunk, getCountWarning, getCountWarningAsyncThunk } from "../store/WarningSlice"
+import { addWarningAsyncThunk, deleteWarningAsyncThunk, getCountWarning, getCountWarningAsyncThunk } from "../store/WarningSlice"
 import { addIncomeSpendingAsyncThunk } from "../store/IncomeSpendingSlice"
 import { Spinner } from "react-bootstrap"
 import { useFormik, yupToFormErrors } from "formik"
@@ -73,7 +73,10 @@ const IncomeSpending = () => {
                     //dem cac canh bao de hien thi ra header
                     dispatch(getCountWarningAsyncThunk())
                 }
-
+                // neu chi thu nhap lon hon thi lai xoa thong bao di
+                if(resTotalMonth.data.totalIncomeMonth > resTotalMonth.data.totalSpendingMonth){
+                    dispatch(deleteWarningAsyncThunk("Thu nhập của bạn đang ít hơn chi tiêu"))
+                }
 
 
                 if (resCountSpendingDay.data[0].countSpendingDay > 1) {

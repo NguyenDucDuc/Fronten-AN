@@ -22,6 +22,12 @@ export const getCountWarningAsyncThunk = createAsyncThunk("getCountWarningAsyncT
     return res.data[0].count
 })
 
+
+export const deleteWarningAsyncThunk = createAsyncThunk("deleteWarningAsyncThunk", async(content) => {
+    const res = await authAPI().delete(endpoints["deleteWarningByContent"])
+    return res.data
+})
+
 const warningSlice = createSlice({
     name: "warning",
     initialState: {
@@ -77,6 +83,18 @@ const warningSlice = createSlice({
             state.count = action.payload;
         },
         [getCountWarningAsyncThunk.rejected]: (state) => {
+            state.status = "error";
+        },
+
+
+        [deleteWarningAsyncThunk.pending]: (state) => {
+            state.status = "loading";
+        },
+        [deleteWarningAsyncThunk.fulfilled]: (state, action) => {
+            state.listWarning = state.listWarning.filter(w => w.id !== action.payload.id);
+            state.status = "success";
+        },
+        [deleteWarningAsyncThunk.rejected]: (state) => {
             state.status = "error";
         }
 

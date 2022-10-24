@@ -11,7 +11,7 @@ import { refreshCountWarning, refreshListWarning } from "../store/WarningSlice"
 
 const Header = () => {
 
-    const username = useSelector(state => state.user.username)
+    const user = useSelector(state => state.user.user)
     const status = useSelector(state => state.user.status)
     const nav = useNavigate()
     //STATE
@@ -29,7 +29,7 @@ const Header = () => {
             if(accessToken){
                 const resCurrentUser = await authAPI().get(endpoints["currentUser"])
                 console.log(resCurrentUser.data)
-                dispatch(updateUsername(resCurrentUser.data.fullname))
+                dispatch(updateUsername(resCurrentUser.data))
             }
         }
         updateUsernameReload()
@@ -139,7 +139,7 @@ const Header = () => {
                                     <a href="#">Thu nhập của bạn vừa tăng 120.000VND</a> */}
                                     </div>
                                 </li>
-                                {username === null ? <li><Link to="/login">Đăng nhập <i class="fa-solid fa-user-large"></i></Link></li> : <li onClick={logout}><Link to="/">{username} <i class="fa-solid fa-right-from-bracket"></i></Link></li>}
+                                {user.fullname === null ? <li><Link to="/login">Đăng nhập <i class="fa-solid fa-user-large"></i></Link></li> : <li onClick={logout}><Link to="/">{user.fullname} <i class="fa-solid fa-right-from-bracket"></i></Link></li>}
                                 {status === "loading" ? <Spinner animation="border" variant="danger" /> : null}
                             </ul>
                         </div>
