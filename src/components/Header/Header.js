@@ -8,6 +8,7 @@ import { logoutReducer, updateUsername } from "../store/UserSlice"
 import cookies from "react-cookies"
 import { authAPI, endpoints } from "../configs/API"
 import { refreshCountWarning, refreshListWarning } from "../store/WarningSlice"
+import Chat from "../Chat"
 
 const Header = () => {
 
@@ -33,6 +34,7 @@ const Header = () => {
             }
         }
         updateUsernameReload()
+        console.log(user)
     }, [])
 
     const showMenu = (event) => {
@@ -150,7 +152,7 @@ const Header = () => {
     
                 </div>
                 <Outlet />
-    
+                <Chat />
             </>
         )
     }

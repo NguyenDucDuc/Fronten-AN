@@ -1,7 +1,10 @@
+import { useEffect } from 'react'
+import Chat from './Chat'
 import './Test.scss'
 
 
 const Test = () => {
+
     return (
         <>
             <h1>TEST PAGE</h1>
@@ -14,6 +17,7 @@ const Test = () => {
             <div className='test2'>
 
             </div>
+            <Chat />
         </>
     )
 }
