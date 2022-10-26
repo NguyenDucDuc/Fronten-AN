@@ -27,6 +27,13 @@ export const addMemberToGroupAsyncThunk = createAsyncThunk("addMemberToGroupAsyn
     return res.data
 })
 
+export const getAllBelongToByUserAsyncThunk = createAsyncThunk("getAllBelongToByUserAsyncThunk", async(url) => {
+    const res = await authAPI().get(url)
+    return res.data
+})
+
+
+
 
 const belongToSlice = createSlice({
     name: "belongTo",
@@ -35,7 +42,9 @@ const belongToSlice = createSlice({
         status: null
     }, 
     reducers: {
-
+        addBelongTo: (state, action) => {
+            state.listBelongTos = [...state.listBelongTos, action.payload];
+        }
     },
     extraReducers: {
         [getAllBelongToByGroupAsyncThunk.pending]: (state) => {
@@ -71,8 +80,20 @@ const belongToSlice = createSlice({
         },
         [addMemberToGroupAsyncThunk.rejected]: (state) => {
             state.status = "error";
+        },
+
+        [getAllBelongToByUserAsyncThunk.pending]: (state) => {
+            state.status = "loading";
+        },
+        [getAllBelongToByUserAsyncThunk.fulfilled]: (state, action) => {
+            state.status = "success";
+            state.listBelongTos = action.payload;
+        },
+        [getAllBelongToByUserAsyncThunk.rejected]: (state) => {
+            state.status = "error";
         }
     }
 })
 
 export default belongToSlice.reducer
+export const {addBelongTo} = belongToSlice.actions

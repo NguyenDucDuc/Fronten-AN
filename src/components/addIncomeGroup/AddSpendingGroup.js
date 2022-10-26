@@ -30,16 +30,34 @@ const AddSpendingGroup = () => {
 
             
             setStatus("loading")
-            const res = await authAPI().post(endpoints["addTempSpendingGroup"], {
-                group_id: parseInt(groupId),
-                money: parseInt(values.money),
-                purpose: values.purpose
-            })
-            // console.log(res.data)
-            setStatus("success")
-            nav("/my-groups")
-            // Xu ly realtime
-            socket.emit("clientSendSpending", res.data)
+            // kiem tra neu user id === user id đã tạo group thì add thẳng xuống db
+            const currentUser = await authAPI().get(endpoints['currentUser'])
+            const currentGroup = await authAPI().get(endpoints["getGroupDetail"](parseInt(groupId)))
+            console.log(currentGroup.data.user.id)
+            console.log(currentUser.data.id)
+            if(currentUser.data.id === currentGroup.data.user.id){
+                const res = await authAPI().post(endpoints['addSpendingGroup'], {
+                    user_id: currentUser.data.id,
+                    group_id: groupId,
+                    money: values.money,
+                    purpose: values.purpose,
+                })
+                console.log(res.data)
+                setStatus("success")
+                nav("/my-groups")
+            }else {
+                const res = await authAPI().post(endpoints["addTempSpendingGroup"], {
+                    group_id: parseInt(groupId),
+                    money: parseInt(values.money),
+                    purpose: values.purpose
+                })
+                // console.log(res.data)
+                setStatus("success")
+                nav("/my-groups")
+                // Xu ly realtime
+                socket.emit("clientSendSpending", res.data)
+            }
+            
 
         }
     })

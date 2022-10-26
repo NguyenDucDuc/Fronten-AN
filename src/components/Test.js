@@ -1,13 +1,17 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Chat from './Chat'
 import './Test.scss'
 
 
 const Test = () => {
+    const [count, setCount] = useState(0)
+    
+    
+    
 
     return (
         <>
-            <h1>TEST PAGE</h1>
+            <h1>{count}</h1>
             <div className='test1'>
                 <h1>asd</h1>
                 <h1>asd</h1>

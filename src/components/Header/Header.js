@@ -111,10 +111,10 @@ const Header = () => {
                                         <li><Link to="/my-groups">Nhóm của tôi</Link></li>
                                     </ul>
                                 </li>
-                                <li><Link to="/">Menu</Link>
+                                <li><Link to="/">Tiện ích</Link>
                                     <ul className="sub-menu">
                                         <li><Link to="/stats">Thống kê</Link></li>
-                                        <li><Link to="/view-spending-jar">Menu</Link></li>
+                                        <li><Link to="/view-spending-jar">Xem hũ</Link></li>
                                         <li><Link to="/">Menu</Link></li>
                                         <li><Link to="/">Menu</Link></li>
                                     </ul>

@@ -19,12 +19,12 @@ const IncomeSpending = () => {
     const warning = useSelector(state => state.warning.listWarning)
     const error = useSelector(state => state.incomeSpending.error)
     const nav = useNavigate()
-    useEffect ( () => {
+    useEffect(() => {
         const accessToken = cookies.load("accessToken")
-        if(!accessToken){
+        if (!accessToken) {
             nav("/login")
         }
-    },[])
+    }, [])
 
     const formik = useFormik({
         initialValues: {
@@ -55,6 +55,7 @@ const IncomeSpending = () => {
 
                 // kiem tra neu chi tieu trong ngay nhieu thi add thong bao.
                 const resCountSpendingDay = await authAPI().get(endpoints["countSpendingDay"])
+                // console.log(resCountSpendingDay.data)
 
                 const resTotalMonth = await authAPI().get(endpoints["getTotalIncomeSpendingMonth"])
                 if (resTotalMonth.data.totalIncomeMonth === null) {
@@ -63,6 +64,7 @@ const IncomeSpending = () => {
                 if (resTotalMonth.data.totalSpendingMonth === null) {
                     resTotalMonth.data.totalSpendingMonth = 0
                 }
+                // kiem tra tong thu nhap thang < tong chi tieu thang thi gui thong bao
                 if (resTotalMonth.data.totalIncomeMonth < resTotalMonth.data.totalSpendingMonth) {
                     const timeElapsed = Date.now();
                     const today = new Date(timeElapsed);
@@ -73,22 +75,26 @@ const IncomeSpending = () => {
                     //dem cac canh bao de hien thi ra header
                     dispatch(getCountWarningAsyncThunk())
                 }
-                // neu chi thu nhap lon hon thi lai xoa thong bao di
-                if(resTotalMonth.data.totalIncomeMonth > resTotalMonth.data.totalSpendingMonth){
+
+                // neu thu nhap lon hon thi lai xoa thong bao di
+                if (resTotalMonth.data.totalIncomeMonth > resTotalMonth.data.totalSpendingMonth) {
                     dispatch(deleteWarningAsyncThunk("Thu nhập của bạn đang ít hơn chi tiêu"))
                 }
 
 
-                if (resCountSpendingDay.data[0].countSpendingDay > 1) {
+                if (resCountSpendingDay.data.countSpendingDay > 1) {
                     const timeElapsed = Date.now();
                     const today = new Date(timeElapsed);
                     const res = await dispatch(addWarningAsyncThunk(`Chi tiêu của bạn ngày ${today.toISOString().split("T")[0]} quá nhiều, hãy cân nhắc`))
+                    console.log(res)
                     if (res.payload) {
                         socket.emit("clientSendWarning", res.payload)
                     }
                     //dem cac canh bao de hien thi ra header
                     dispatch(getCountWarningAsyncThunk())
                 }
+
+
                 // kiem tra tong thu nhap va chi tieu cua thang neu chi tieu lon hon thu nhap thi them 1 canh bao
 
 
@@ -181,7 +187,7 @@ const IncomeSpending = () => {
                             <option value="SPENDING">Chi tiêu</option>
                         </select>
                     </div>
-                    <p style={{ marginLeft: "19%"}}>Thêm chi tiêu với quy tắc <Link to="/add-spending-6-jar" style={{color: "#ff0066", fontWeight: "bold"}}>6 chiếc hũ</Link></p>
+                    <p style={{ marginLeft: "19%" }}>Thêm chi tiêu với quy tắc <Link to="/add-spending-6-jar" style={{ color: "#ff0066", fontWeight: "bold" }}>6 chiếc hũ</Link></p>
                     {status === "loading" ? <Spinner className="spinner" animation="border" variant="danger" /> : <button type="submit">Thêm</button>}
 
                 </form>

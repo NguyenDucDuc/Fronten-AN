@@ -30,8 +30,9 @@ const CreateGroup = () => {
                     purpose: values.purpose
                 })
                 console.log(res.data)
-                // gui len server
+                // gui nhom moi tao len server
                 socket.emit("clientSendCreateGroup", res.data)
+            
                 // lay user hien tai
                 const resCurrentUser = await authAPI().get(endpoints["currentUser"])
                 console.log(resCurrentUser.data)
@@ -41,6 +42,13 @@ const CreateGroup = () => {
                     group_id: res.data.id
                 })
                 console.log(resAddMember.data)
+
+                // tao 1 belong to va gui len server
+                const newBelongTo = {
+                    user_id: resCurrentUser.data.id,
+                    group_id: res.data
+                }
+                socket.emit('clientSendCreateBelongTo', newBelongTo)
                 setStatus(false)
             } catch (error) {
                 console.log(error.response)

@@ -103,7 +103,7 @@ div.card-income-spending {
         margin: 60px auto;
         border-radius: 5px;
         div.left {
-            width: 60%;
+            width: 40%;
             display: flex;
             margin: auto 0;
             div.line{
@@ -130,16 +130,16 @@ div.card-income-spending {
             
         }
         div.right{
-            width: 40%;
+            width: 60%;
             display: flex;
             
             p {
                 font-weight: bold;
                 margin: auto 0;
-                width: 50%;
+                width: 40%;
             }
             i {
-                width: 50%;
+                width: 60%;
                 margin: auto 0;
                 margin-left: 50px;
                 font-size: 30px;

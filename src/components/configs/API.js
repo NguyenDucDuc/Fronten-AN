@@ -48,7 +48,8 @@ export const endpoints = {
     "countAllUser": "/api/v1/user/count",
     "forgetPassword": "/api/v1/user/forget-password",
     "resetPassword": "/api/v1/user/reset-password",
-    "countGroup": "/api/v1/group-count"
+    "countGroup": "/api/v1/group-count",
+    "countUserAndGroup": "/api/v1/stats/count-user-group"
 
 }
 

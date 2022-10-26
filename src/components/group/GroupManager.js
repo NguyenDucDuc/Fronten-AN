@@ -24,6 +24,9 @@ const GroupManager = () => {
             }
         }
 
+        
+        
+
 
         const loadCountGroup = async () => {
             const res = await authAPI().get(endpoints["countGroup"])
@@ -31,7 +34,7 @@ const GroupManager = () => {
         }
 
         checkLogin()
-
+        
         loadCountGroup()
     }, [])
 
@@ -42,7 +45,10 @@ const GroupManager = () => {
             if (query.get('page')) {
                 page = parseInt(query.get('page'))
                 url += `/?page=${page}`
+            }else {
+                url += `/?page=${page}`
             }
+            console.log(url)
             dispatch(getAllGroupAsyncThunk(url))
         }
         loadGroup()
