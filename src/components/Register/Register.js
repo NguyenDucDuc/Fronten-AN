@@ -117,12 +117,12 @@ const Register = () => {
                         <select value={role} onChange={e => setRole(e.target.value)}>
                             <option value="USER">USER</option>
                             <option value="ENTERPRISE">ENTERPRISE</option>
-                            <option value="ADMIN">ADMIN</option>
+                            
                         </select>
                     </div>
                     <div className="form-group">
                         <label>Choose avatar: </label>
-                        <input type="file" ref={avatar} />
+                        <input type="file" ref={avatar} required />
                     </div>
                     
                     {/* <button type="submit">Đăng ký</button> */}

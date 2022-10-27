@@ -1,6 +1,6 @@
 h1.title-chat-group{
     text-align: center;
-            font-size: 50px;
+            
             color: #cc0066;
             margin-top: 50px;
             font-weight: bold;
@@ -10,7 +10,7 @@ div.chat-group {
     margin: 0 auto;
     // box-shadow: 15px 15px 25px #a6a6a6 ;
     div.content {
-        height: 700px;
+        height: 600px;
         width: 90%;
         margin: 0 auto;
         overflow-y: scroll;
@@ -21,15 +21,15 @@ div.chat-group {
         margin-top: 60px;
         input {
             border: 2px solid #0099ff;
-            width: 80%;
-            height: 50px;
+            width: 70%;
+            height: 40px;
             outline: none;
             border-radius: 10px;
         }
         button {
             width: 15%;
             margin-left: 5%;
-            height: 50px;
+            height: 40px;
             border-radius: 10px;
             outline: none;
             background: #0099ff;
@@ -52,7 +52,7 @@ div.chat-group {
         margin: 0 auto;
         // box-shadow: 15px 15px 25px #a6a6a6 ;
         div.content {
-            height: 700px;
+            height: 600px;
             width: 90%;
             margin: 0 auto;
             overflow-y: scroll;
@@ -63,15 +63,15 @@ div.chat-group {
             margin-top: 60px;
             input {
                 border: 2px solid #0099ff;
-                width: 80%;
-                height: 50px;
+                width: 60%;
+                height: 40px;
                 outline: none;
                 border-radius: 10px;
             }
             button {
                 width: 15%;
                 margin-left: 5%;
-                height: 50px;
+                height: 40px;
                 border-radius: 10px;
                 outline: none;
                 background: #0099ff;
@@ -96,7 +96,7 @@ div.chat-group {
         margin: 0 auto;
         // box-shadow: 15px 15px 25px #a6a6a6 ;
         div.content {
-            height: 700px;
+            height: 600px;
             width: 90%;
             margin: 0 auto;
             overflow-y: scroll;

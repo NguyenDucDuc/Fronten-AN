@@ -96,7 +96,7 @@ const Member = () => {
             }
             
             
-            <h1>{groupId}</h1>
+            
         </>
     )
 }
