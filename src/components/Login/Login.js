@@ -15,6 +15,7 @@ import { gapi } from "gapi-script"
 import jwt_decode from "jwt-decode"
 import axios from "axios"
 import { updateErr } from "../store/IncomeSpendingSlice"
+import { socket } from "../../App"
 
 const Login = () => {
 
@@ -54,6 +55,7 @@ const Login = () => {
                     dispatch(getCountWarningAsyncThunk())
                     //set error thanh null
                     dispatch(updateErr(null))
+                    
                     nav("/")
                 }
             }

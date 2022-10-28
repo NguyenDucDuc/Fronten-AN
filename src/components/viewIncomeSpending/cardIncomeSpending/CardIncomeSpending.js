@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux"
 import { deleteIncomeSpendingAsyncThunk } from "../../store/IncomeSpendingSlice"
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import {socket} from "../../../App"
+import { authAPI, endpoints } from "../../configs/API";
 
 
 const CardIncomeSpending = (props) => {
@@ -21,12 +22,14 @@ const CardIncomeSpending = (props) => {
                 {
                     label: "Yes",
                     onClick: async () => {
+                        const currentUser = await authAPI().get(endpoints['currentUser'])
                         const info = {
                             incomeSpendingId: props.incomeSpendingId,
                             type: props.type
                         }
                         const resDelete = await dispatch(deleteIncomeSpendingAsyncThunk(info))
-                        socket.emit("clientSendIncomeSpendingAfterDelete", resDelete.payload)
+                        // socket.emit("clientSendIncomeSpendingAfterDelete", resDelete.payload)
+                        socket.emit("clientSendIncomeSpendingAfterDelete", {incomeSpending: resDelete.payload, userId: currentUser.data.id})
                     },
                     style: {
                         backgroundColor: "#00cc66"

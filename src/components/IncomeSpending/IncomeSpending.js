@@ -25,6 +25,8 @@ const IncomeSpending = () => {
             nav("/login")
         }
     }, [])
+    // join vao phong de emit
+    
 
     const formik = useFormik({
         initialValues: {
@@ -37,7 +39,7 @@ const IncomeSpending = () => {
         }),
         onSubmit: async (values) => {
             try {
-
+                const currentUser = await authAPI().get(endpoints['currentUser'])
                 const requestBody = {
                     money: parseFloat(values.money),
                     purpose: values.purpose,
@@ -47,14 +49,14 @@ const IncomeSpending = () => {
                 const res = await dispatch(addIncomeSpendingAsyncThunk(requestBody))
                 console.log(res)
                 // gui income spending len server de cap nhat realtime
-                socket.emit("clientSendIncomeSpending", res.payload)
+                // socket.emit("clientSendIncomeSpending", res.payload)
+                socket.emit("clientSendIncomeSpending", {incomeSpending: res.payload, userId: currentUser.data.id})
                 // if(selected === "INCOME")
                 //     dispatch(addWarningAsyncThunk(`Thu nhập của bạn vừa tăng ${res.payload.money} VND`))
                 // else 
                 //     dispatch(addWarningAsyncThunk(`Chi tiêu của bạn vừa tăng ${res.payload.money} VND`))
 
-                // kiem tra neu chi tieu trong ngay nhieu thi add thong bao.
-                const resCountSpendingDay = await authAPI().get(endpoints["countSpendingDay"])
+                
                 // console.log(resCountSpendingDay.data)
 
                 const resTotalMonth = await authAPI().get(endpoints["getTotalIncomeSpendingMonth"])
@@ -70,7 +72,7 @@ const IncomeSpending = () => {
                     const today = new Date(timeElapsed);
                     const res = await dispatch(addWarningAsyncThunk(`Thu nhập của bạn đang ít hơn chi tiêu`))
                     if (res.payload) {
-                        socket.emit("clientSendWarning", res.payload)
+                        socket.emit("clientSendWarning", {warning: res.payload, userId: currentUser.data.id})
                     }
                     //dem cac canh bao de hien thi ra header
                     dispatch(getCountWarningAsyncThunk())
@@ -81,6 +83,8 @@ const IncomeSpending = () => {
                     dispatch(deleteWarningAsyncThunk("Thu nhập của bạn đang ít hơn chi tiêu"))
                 }
 
+                // kiem tra neu chi tieu trong ngay nhieu thi add thong bao.
+                const resCountSpendingDay = await authAPI().get(endpoints["countSpendingDay"])
 
                 if (resCountSpendingDay.data.countSpendingDay > 1) {
                     const timeElapsed = Date.now();
@@ -88,7 +92,7 @@ const IncomeSpending = () => {
                     const res = await dispatch(addWarningAsyncThunk(`Chi tiêu của bạn ngày ${today.toISOString().split("T")[0]} quá nhiều, hãy cân nhắc`))
                     console.log(res)
                     if (res.payload) {
-                        socket.emit("clientSendWarning", res.payload)
+                        socket.emit("clientSendWarning", {warning: res.payload, userId: currentUser.data.id})
                     }
                     //dem cac canh bao de hien thi ra header
                     dispatch(getCountWarningAsyncThunk())

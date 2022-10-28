@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import API, { endpoints } from "../configs/API";
 import cookies from "react-cookies"
 import axios from "axios";
+import {socket} from '../../App'
 
 
 export const loginAsyncThunk = createAsyncThunk("loginAsyncThunk", async (reqBody, {rejectWithValue} ) => {
@@ -14,6 +15,8 @@ export const loginAsyncThunk = createAsyncThunk("loginAsyncThunk", async (reqBod
         if (res.data.accessToken) {
             cookies.save("accessToken", res.data.accessToken)
         }
+        // join vao room
+        socket.emit('login', res.data.user.id)
         return res.data.user
     } catch (error) {
         console.log(error)

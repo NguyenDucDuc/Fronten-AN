@@ -9,6 +9,7 @@ import cookies from "react-cookies"
 import { authAPI, endpoints } from "../configs/API"
 import { refreshCountWarning, refreshListWarning } from "../store/WarningSlice"
 import Chat from "../Chat"
+import {socket} from '../../App'
 
 const Header = () => {
 
@@ -31,6 +32,8 @@ const Header = () => {
                 const resCurrentUser = await authAPI().get(endpoints["currentUser"])
                 console.log(resCurrentUser.data)
                 dispatch(updateUsername(resCurrentUser.data))
+                // join vao room
+                socket.emit('login', resCurrentUser.data.id)
             }
         }
         updateUsernameReload()

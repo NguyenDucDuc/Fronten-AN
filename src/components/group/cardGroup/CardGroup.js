@@ -5,6 +5,7 @@ import { socket } from "../../../App"
 import { confirmAlert } from "react-confirm-alert"
 import { useDispatch } from "react-redux"
 import { deleteGroupAsyncThunk } from "../../store/GroupSlice"
+import { authAPI, endpoints } from "../../configs/API"
 
 
 
@@ -26,8 +27,10 @@ const CardGroup = (props) => {
                 {
                     label: "Yes",
                     onClick: async () => {
+                        const currentUser = await authAPI().get(endpoints['currentUser'])
                         const resDeleteGroup = await dispatch(deleteGroupAsyncThunk(props.groupId))
-                        socket.emit("clientSendGroupAfterDeleted", resDeleteGroup.payload)
+                        // socket.emit("clientSendGroupAfterDeleted", resDeleteGroup.payload)
+                        socket.emit("clientSendGroupAfterDeleted", {groups: resDeleteGroup.payload, userId: currentUser.data.id})
                     },
                     style: {
                         backgroundColor: "#00cc66"
