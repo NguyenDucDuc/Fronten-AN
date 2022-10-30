@@ -31,10 +31,8 @@ const MyGroup = () => {
            
             setCountGroup(res.data.count)
         }
-
         
         checkLogin()
-        
         loadCountGroup()
     }, [])
 
@@ -87,7 +85,7 @@ const MyGroup = () => {
                 {items}
             </Pagination>
             {
-                myGroups.map((g, idx) => <CardMyGroup groupId={g.group_id.id} key={idx} groupname={g.group_id.groupname} createdAt={g.group_id.createdAt.split("T")[0]} purpose={g.group_id.purpose} />)
+                myGroups.map((g, idx) => <CardMyGroup groupId={g.group_id.id} key={idx} groupname={g.group_id.groupname} createdAt={g.group_id.createdAt !== undefined ? g.group_id.createdAt.split('T')[0] : g.group_id.createdAt } purpose={g.group_id.purpose} />)
             }
         </>
     )

@@ -11,6 +11,7 @@ import HomeSection3 from "./section3/HomeSection3"
 import HomeSection4 from "./section4/HomeSection4"
 import HomeSection5 from "./section5/HomeSection5"
 import Chat from "../Chat"
+import { useEffect } from "react"
 
 
 const Home = () => {
@@ -22,7 +23,6 @@ const Home = () => {
             <HomeSection3 />
             <HomeSection4 />
             <HomeSection5 />
-            
         </>
     )
 }

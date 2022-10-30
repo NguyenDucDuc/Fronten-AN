@@ -86,7 +86,8 @@ const IncomeSpending = () => {
                 // kiem tra neu chi tieu trong ngay nhieu thi add thong bao.
                 const resCountSpendingDay = await authAPI().get(endpoints["countSpendingDay"])
 
-                if (resCountSpendingDay.data.countSpendingDay > 1) {
+                if (resCountSpendingDay.data.countSpendingDay > parseInt(process.env.REACT_APP_SPENDING_EXPIRED)) {
+                    console.log(parseInt(process.env.REACT_APP_SPENDING_EXPIRED))
                     const timeElapsed = Date.now();
                     const today = new Date(timeElapsed);
                     const res = await dispatch(addWarningAsyncThunk(`Chi tiêu của bạn ngày ${today.toISOString().split("T")[0]} quá nhiều, hãy cân nhắc`))

@@ -9,6 +9,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google"
 import {PayPalScriptProvider} from "@paypal/react-paypal-js"
 
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>

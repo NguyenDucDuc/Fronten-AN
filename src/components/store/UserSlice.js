@@ -77,6 +77,7 @@ const userSlice = createSlice({
         }
     },
     extraReducers: {
+        
         [loginAsyncThunk.pending]: (state) => {
             state.status = "loading";
         },
