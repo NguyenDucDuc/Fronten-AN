@@ -54,7 +54,8 @@ const CardGroup = (props) => {
     }
     const goToChatGroup = (event) => {
         event.preventDefault()
-        
+        // join room socket io
+        socket.emit('joinRoom', parseInt(props.groupId))
         nav(`/group-manager/${props.groupId}/chat-group`)
         // join room socket
     }

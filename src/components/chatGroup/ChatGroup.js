@@ -33,6 +33,8 @@ const ChatGroup = () => {
     }, [])
 
     useEffect(() => {
+        // join vao room chat
+        socket.emit('joinRoom', parseInt(groupId))
         socket.off("serverReSendMessage").on("serverReSendMessage", data => {
             console.log(data)
             dispatch(addMessage(data))

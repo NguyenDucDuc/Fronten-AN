@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom"
 import "./CardMyGroup.scss"
+import {socket} from '../../../App'
 
 
 const CardMyGroup = (props) => {
@@ -12,6 +13,8 @@ const CardMyGroup = (props) => {
     }
     const goToChatGroup = (event) => {
         event.preventDefault()
+        // join user vao room chat
+        socket.emit('joinRoom', parseInt(props.groupId))
         nav(`/group-manager/${props.groupId}/chat-group`)
     }
     const goToSpendingDetail = (event) => {
