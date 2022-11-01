@@ -52,7 +52,10 @@ const Login = () => {
                 const accessToken = cookies.load("accessToken")
                 console.log(accessToken)
                 if (accessToken) {
+                    //dem tat ca thong bao
                     dispatch(getCountWarningAsyncThunk())
+                    // lay tat ca thong bao de hien thi
+                    dispatch(getAllWarningAsyncThunk())
                     //set error thanh null
                     dispatch(updateErr(null))
                     

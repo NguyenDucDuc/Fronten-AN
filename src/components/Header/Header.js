@@ -7,9 +7,9 @@ import { useDispatch } from "react-redux"
 import { logoutReducer, updateUsername } from "../store/UserSlice"
 import cookies from "react-cookies"
 import { authAPI, endpoints } from "../configs/API"
-import { refreshCountWarning, refreshListWarning } from "../store/WarningSlice"
+import { getAllWarningAsyncThunk, refreshCountWarning, refreshListWarning } from "../store/WarningSlice"
 import Chat from "../Chat"
-import {socket} from '../../App'
+import { socket } from '../../App'
 
 const Header = () => {
 
@@ -22,17 +22,19 @@ const Header = () => {
     const [innerWidth, setInnerWidth] = useState(window.innerWidth)
     const [background, setBackground] = useState("#e6e6e6")
     const [visible, setVisible] = useState("show")
+    const [showNotification, setShowNotification] = useState(false)
     const count = useSelector(state => state.warning.count)
 
-    useEffect( () => {
+    useEffect(() => {
         const updateUsernameReload = async () => {
             const accessToken = cookies.load('accessToken')
             console.log(accessToken)
-            if(accessToken){
+            if (accessToken) {
                 const resCurrentUser = await authAPI().get(endpoints["currentUser"])
                 console.log(resCurrentUser.data)
                 dispatch(updateUsername(resCurrentUser.data))
                 // join vao room
+                dispatch(getAllWarningAsyncThunk())
                 socket.emit('login', resCurrentUser.data.id)
             }
         }
@@ -69,7 +71,7 @@ const Header = () => {
         if (window.innerWidth > 1024) {
             setVisible("show")
         }
-        if(window.innerWidth <= 1024)
+        if (window.innerWidth <= 1024)
             setVisible("hidden")
     })
 
@@ -91,75 +93,80 @@ const Header = () => {
     // if(window.location.pathname === "/admin")
     //     return null
     // else {
-        return (
-            <>
-                <div className="header">
-                    <div className="header-left">
-                        <h1 style={{fontWeight: "bold"}}><Link to="/" style={{textDecoration: "none", color: "black"}}>BUDGET MANAGERMENT</Link></h1>
-                    </div>
-    
-                    <div id="menu-bar" className="menu-bar" onClick={showMenu}><i id="i-menu-bar" class="fa-solid fa-bars"></i></div>
-    
-                    {/* Kiem tran neu visible la show thi hien thi */}
-                    {/* Kiem tra hien thi tren mobile tablet */}
-                    {visible === "show" ?
-                        <div className="header-right" id="header-right">
-                            <ul id="menu" className="menu">
-                                <li><Link to="/">Chức năng</Link>
-                                    <ul className="sub-menu">
-                                        <li><Link to="/add-income-spending">Thêm chi tiêu</Link></li>
-                                        <li><Link to="/view-income-spending">Chi tiêu của tôi</Link></li>
-                                        <li><Link to="/create-group">Tạo nhóm</Link></li>
-                                        <li><Link to="/group-manager">Quản lý nhóm</Link></li>
-                                        <li><Link to="/my-groups">Nhóm của tôi</Link></li>
-                                    </ul>
-                                </li>
-                                <li><Link to="/">Tiện ích</Link>
-                                    <ul className="sub-menu">
-                                        <li><Link to="/stats">Thống kê</Link></li>
-                                        <li><Link to="/view-spending-jar">Xem hũ</Link></li>
-                                        <li><Link to="/">Menu</Link></li>
-                                        <li><Link to="/">Menu</Link></li>
-                                    </ul>
-                                </li>
-                                <li><Link to="/">Menu</Link>
-                                    <ul className="sub-menu">
-                                        <li><Link to="/">Menu</Link></li>
-                                        <li><Link to="/">Menu</Link></li>
-                                        <li><Link to="/">Menu</Link></li>
-                                        <li><Link to="/">Menu</Link></li>
-                                    </ul>
-                                </li>
-                                <li><Link to="/donate">Ủng hộ tác giả</Link>
-                                    <ul className="sub-menu">
-                                        <li><Link to="/">Menu</Link></li>
-                                        <li><Link to="/">Menu</Link></li>
-                                        <li><Link to="/">Menu</Link></li>
-                                        <li><Link to="/">Menu</Link></li>
-                                    </ul>
-                                </li>
-                                <li><Link to="/warning">Cảnh báo <i className="fa-solid fa-bell">{count !== null ?<span>{count}</span> : null }</i></Link>
-                                    <div className="notification">
-                                        {/* <a href="#">Thu nhập của bạn vừa tăng 120.000VND</a>
-                                    <a href="#">Thu nhập của bạn vừa tăng 120.000VND</a> */}
-                                    </div>
-                                </li>
-                                {user.fullname === null ? <li><Link to="/login">Đăng nhập <i class="fa-solid fa-user-large"></i></Link></li> : <li onClick={logout}><Link to="/">{user.fullname} <i class="fa-solid fa-right-from-bracket"></i></Link></li>}
-                                {status === "loading" ? <Spinner animation="border" variant="danger" /> : null}
-                            </ul>
-                        </div>
-                        :
-                        null
-                    }
-    
-    
+    return (
+        <>
+            <div className="header">
+                <div className="header-left">
+                    <h1 style={{ fontWeight: "bold" }}><Link to="/" style={{ textDecoration: "none", color: "black" }}>BUDGET MANAGERMENT</Link></h1>
                 </div>
-                <Outlet />
-                <Chat />
-            </>
-        )
-    }
 
-    
+                <div id="menu-bar" className="menu-bar" onClick={showMenu}><i id="i-menu-bar" class="fa-solid fa-bars"></i></div>
+
+                {/* Kiem tran neu visible la show thi hien thi */}
+                {/* Kiem tra hien thi tren mobile tablet */}
+                {visible === "show" ?
+                    <div className="header-right" id="header-right">
+                        <ul id="menu" className="menu">
+                            <li><Link to="/">Chức năng</Link>
+                                <ul className="sub-menu">
+                                    <li><Link to="/add-income-spending">Thêm chi tiêu</Link></li>
+                                    <li><Link to="/view-income-spending">Chi tiêu của tôi</Link></li>
+                                    <li><Link to="/create-group">Tạo nhóm</Link></li>
+                                    <li><Link to="/group-manager">Quản lý nhóm</Link></li>
+                                    <li><Link to="/my-groups">Nhóm của tôi</Link></li>
+                                </ul>
+                            </li>
+                            <li><Link to="/">Tiện ích</Link>
+                                <ul className="sub-menu">
+                                    <li><Link to="/stats">Thống kê</Link></li>
+                                    <li><Link to="/view-spending-jar">Xem hũ</Link></li>
+                                    <li><Link to="/">Menu</Link></li>
+                                    <li><Link to="/">Menu</Link></li>
+                                </ul>
+                            </li>
+                            <li><Link to="/">Menu</Link>
+                                <ul className="sub-menu">
+                                    <li><Link to="/">Menu</Link></li>
+                                    <li><Link to="/">Menu</Link></li>
+                                    <li><Link to="/">Menu</Link></li>
+                                    <li><Link to="/">Menu</Link></li>
+                                </ul>
+                            </li>
+                            <li><Link to="/donate">Ủng hộ tác giả</Link>
+                                <ul className="sub-menu">
+                                    <li><Link to="/">Menu</Link></li>
+                                    <li><Link to="/">Menu</Link></li>
+                                    <li><Link to="/">Menu</Link></li>
+                                    <li><Link to="/">Menu</Link></li>
+                                </ul>
+                            </li>
+                            <li><Link to="#">Cảnh báo <i className="fa-solid fa-bell" onClick={e => setShowNotification(!showNotification)}>{count !== null ? <span>{count}</span> : null}</i></Link>
+                                {showNotification === true ?
+                                    <div className="notification">
+                                        {warnings !== null ? warnings.map(w => <a>{w.content}</a>)
+                                            : null
+                                        }
+                                        <Link to='/warning' style={{textAlign: 'center', color: '#ff0066', fontWeight: 'bold'}} onClick={() => setShowNotification(!showNotification)}>Xem chi tiết</Link>
+                                    </div>
+                                    : null
+                                }
+                            </li>
+                            {user.fullname === null ? <li><Link to="/login">Đăng nhập <i class="fa-solid fa-user-large"></i></Link></li> : <li onClick={logout}><Link to="/">{user.fullname} <i class="fa-solid fa-right-from-bracket"></i></Link></li>}
+                            {status === "loading" ? <Spinner animation="border" variant="danger" /> : null}
+                        </ul>
+                    </div>
+                    :
+                    null
+                }
+
+
+            </div>
+            <Outlet />
+            <Chat />
+        </>
+    )
+}
+
+
 
 export default Header

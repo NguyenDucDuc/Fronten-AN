@@ -28,27 +28,21 @@ div.header {
                 font-weight: bold;
                 div.notification {
                     // margin-top: 20px;
-                    display: none;
                     position: absolute;
                     background: white;
                     box-shadow: 15px 15px 25px #a6a6a6;
-                    width: 450px;
+                    width: 400px;
+                    min-height: 600px;
                     top: 100%;
                     right: 0;
                     border-radius: 5px;
                     z-index: 100;
-                    a {
-                        text-align: center;
-                        color: black;
-                        margin: 10px 0;
-                        
-                        padding: 10px 0;
-                        &:first-child {
-                            padding-top: 20px;
-                            
-                        }
-                    }
                     
+                    a {
+                        color: black;
+                        font-size: 14px;
+                        margin: 25px 0;
+                    }
                 }
                 // div.notification::before {
                 //     content: "";
@@ -61,9 +55,6 @@ div.header {
                 //     top: -30px;
                 //     right: 18px;
                 // }
-                &:hover > div.notification {
-                    display: block;
-                }
                 a {
                     text-decoration: none;
                     color: #ff0066;
