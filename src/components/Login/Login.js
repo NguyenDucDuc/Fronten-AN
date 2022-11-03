@@ -163,12 +163,17 @@ const Login = () => {
                         <p className="link-to-register">Bạn chưa có tài khoản ? <Link to="/register">Đăng ký</Link></p>
 
                         <button type="button" onClick={loginGoogle}><i class="fa-brands fa-google"></i>Google</button>
-                        <button type="submit">Đăng nhập</button>
                         <FacebookLogin
                             appId="576726474216580"
                             autoLoad={true}
                             fields="name,email,picture"
-                            callback={responseFacebook} />
+                            callback={responseFacebook}
+                            textButton="Facebook"
+                            buttonStyle={{fontWeight: 'normal', textTransform: 'none', borderRadius: '20px'}}
+                            icon="fa-facebook"
+                        />
+                        <button type="submit">Đăng nhập</button>
+                        
                     </form>
                 </div>
             }
