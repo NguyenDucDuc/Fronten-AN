@@ -49,7 +49,8 @@ export const endpoints = {
     "forgetPassword": "/api/v1/user/forget-password",
     "resetPassword": "/api/v1/user/reset-password",
     "countGroup": "/api/v1/group-count",
-    "countUserAndGroup": "/api/v1/stats/count-user-group"
+    "countUserAndGroup": "/api/v1/stats/count-user-group",
+    "facebookLogin": "/api/v1/user/facebook"
 
 }
 

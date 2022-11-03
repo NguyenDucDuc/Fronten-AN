@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import API, { authAPI, endpoints } from "../configs/API"
 import { useDispatch, useSelector } from "react-redux"
 
-import { loginAsyncThunk, loginGoogleAsyncThunk } from "../store/UserSlice"
+import { loginAsyncThunk, loginFacebookAsyncThunk, loginGoogleAsyncThunk } from "../store/UserSlice"
 import cookies from "react-cookies"
 import { getAllWarningAsyncThunk, getCountWarningAsyncThunk } from "../store/WarningSlice"
 import { Spinner } from "react-bootstrap"
@@ -16,6 +16,8 @@ import jwt_decode from "jwt-decode"
 import axios from "axios"
 import { updateErr } from "../store/IncomeSpendingSlice"
 import { socket } from "../../App"
+import FacebookLogin from 'react-facebook-login'
+import { loginAdminAsyncThunk } from "../store/UserAdminSlice"
 
 const Login = () => {
 
@@ -27,9 +29,9 @@ const Login = () => {
     const status = useSelector(state => state.user.status)
     const error = useSelector(state => state.user.error)
 
-    useEffect( () => {
+    useEffect(() => {
         console.log(cookies.load('OTP'))
-    },[])
+    }, [])
 
 
 
@@ -58,7 +60,7 @@ const Login = () => {
                     dispatch(getAllWarningAsyncThunk())
                     //set error thanh null
                     dispatch(updateErr(null))
-                    
+
                     nav("/")
                 }
             }
@@ -111,7 +113,24 @@ const Login = () => {
         },
     });
 
-
+    const responseFacebook = async (response) => {
+        console.log(response)
+        //  const res = await API.get(`https://graph.facebook.com/${response.id}?fields=id,name,email,picture&access_token=${response.accessToken}`)
+        //  console.log(res.data)
+        const reqBody = {
+            username: response.id,
+            fullname: response.name,
+            email: response.email,
+            avatar: response.picture.data.url
+        };
+        const valueDispatch = await dispatch(loginFacebookAsyncThunk(reqBody));
+        console.log(valueDispatch);
+        if(valueDispatch.payload.accessToken){
+            cookies.save('accessToken', valueDispatch.payload.accessToken);
+            nav("/");
+        }
+       
+    }
     return (
         <>
 
@@ -145,6 +164,11 @@ const Login = () => {
 
                         <button type="button" onClick={loginGoogle}><i class="fa-brands fa-google"></i>Google</button>
                         <button type="submit">Đăng nhập</button>
+                        <FacebookLogin
+                            appId="576726474216580"
+                            autoLoad={true}
+                            fields="name,email,picture"
+                            callback={responseFacebook} />
                     </form>
                 </div>
             }

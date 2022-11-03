@@ -56,6 +56,18 @@ export const loginGoogleAsyncThunk = createAsyncThunk("loginGoolgeAsyncThunk", a
 })
 
 
+export const loginFacebookAsyncThunk = createAsyncThunk("loginFacebookAsyncThunk", async (reqBody) => {
+    const res = await API.post(endpoints['facebookLogin'], {
+        username: reqBody.username,
+        fullname: reqBody.fullname,
+        email: reqBody.email,
+        avatar: reqBody.avatar,
+    });
+    console.log(res.data)
+    return res.data;
+})
+
+
 
 const userSlice = createSlice({
     name: "user",
@@ -98,6 +110,17 @@ const userSlice = createSlice({
             state.user.fullname = action.payload.fullname;
         },
         [loginGoogleAsyncThunk.rejected]: (state) => {
+            state.status = "error";
+        },
+
+        [loginFacebookAsyncThunk.pending]: (state) => {
+            state.status = "loading";
+        },
+        [loginFacebookAsyncThunk.fulfilled]: (state, action) => {
+            state.status = "success";
+            state.user = action.payload.user;
+        },
+        [loginFacebookAsyncThunk.rejected]: (state) => {
             state.status = "error";
         }
     }
